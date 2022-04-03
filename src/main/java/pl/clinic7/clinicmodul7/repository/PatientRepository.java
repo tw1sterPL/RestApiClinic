@@ -20,7 +20,8 @@ public class PatientRepository {
                     default
                  """,
                 "default",
-                "default"
+                "default",
+                 "default"
         ));
     }
     public List<Patient> findAll() {

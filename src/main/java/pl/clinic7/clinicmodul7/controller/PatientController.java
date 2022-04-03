@@ -16,7 +16,7 @@ public class PatientController {
 
     private final PatientRepository patientsRepository;
 
-    @Autowired
+
     public PatientController(PatientRepository patientsRepository) {
         this.patientsRepository = patientsRepository;
     }
