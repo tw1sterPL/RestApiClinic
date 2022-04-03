@@ -39,7 +39,7 @@ public class PatientController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
-    public void update(@RequestBody Patient patient, @PathVariable String id) {
+    public void update(@Valid @RequestBody Patient patient, @PathVariable String id) {
         patientsRepository.update(patient,id);
     }
 
