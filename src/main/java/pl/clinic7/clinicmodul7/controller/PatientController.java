@@ -1,12 +1,10 @@
 package pl.clinic7.clinicmodul7.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.clinic7.clinicmodul7.exception.PatientNotFoundException;
 import pl.clinic7.clinicmodul7.model.Patient;
-import pl.clinic7.clinicmodul7.repository.PatientRepository;
-
+import pl.clinic7.clinicmodul7.service.PatientServices;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -14,38 +12,37 @@ import java.util.List;
 @RequestMapping("/api/patients")
 public class PatientController {
 
-    private final PatientRepository patientsRepository;
+    private final PatientServices patientsServices;
 
-
-    public PatientController(PatientRepository patientsRepository) {
-        this.patientsRepository = patientsRepository;
+    public PatientController( PatientServices patientsServices) {
+        this.patientsServices = patientsServices;
     }
 
     @GetMapping
     public List<Patient> findAll() {
-        return patientsRepository.findAll();
+        return patientsServices.findAll();
     }
 
     @GetMapping("/{id}")
     public Patient findById(@PathVariable String id) throws PatientNotFoundException {
-        return patientsRepository.findById(id);
+        return patientsServices.findById(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public Patient create(@Valid @RequestBody Patient patient) {
-        return patientsRepository.create(patient);
+        return patientsServices.create(patient);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
     public void update(@Valid @RequestBody Patient patient, @PathVariable String id) {
-        patientsRepository.update(patient,id);
+        patientsServices.update(patient,id);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     public void delete(@PathVariable String id) {
-        patientsRepository.delete(id);
+        patientsServices.delete(id);
     }
 }
