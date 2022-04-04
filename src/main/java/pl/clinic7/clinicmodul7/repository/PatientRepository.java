@@ -11,7 +11,7 @@ import java.util.UUID;
 @Repository
 public class PatientRepository {
 
-    List<Patient> patients = new ArrayList<>();
+    List<Patient> patients;
 
 //    public PatientRepository(){
 //        patients.add(new Patient(UUID.randomUUID().toString(),
