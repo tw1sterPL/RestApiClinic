@@ -17,7 +17,7 @@ public record Patient(
         @NotNull(message= "Pole nie może być puste")
         @PESEL
         String PESEL,
-        @Size(min = 50, max = 255)
+        @Size(min = 1, max = 255)
         String comment)
 {
 }

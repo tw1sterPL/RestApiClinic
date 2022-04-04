@@ -13,17 +13,22 @@ public class PatientRepository {
 
     List<Patient> patients = new ArrayList<>();
 
-    public PatientRepository(){
-        patients.add(new Patient(UUID.randomUUID().toString(),
-                "default",
-                """
-                    default
-                 """,
-                "default",
-                "default",
-                 "default"
-        ));
+//    public PatientRepository(){
+//        patients.add(new Patient(UUID.randomUUID().toString(),
+//                "default",
+//                """
+//                    default
+//                 """,
+//                "default",
+//                "default",
+//                 "default"
+//        ));
+//    }
+
+    public PatientRepository(List<Patient> patients) {
+        this.patients = patients;
     }
+
     public List<Patient> findAll() {
         return patients;
     }
