@@ -13,18 +13,6 @@ public class PatientRepository {
 
     List<Patient> patients;
 
-//    public PatientRepository(){
-//        patients.add(new Patient(UUID.randomUUID().toString(),
-//                "default",
-//                """
-//                    default
-//                 """,
-//                "default",
-//                "default",
-//                 "default"
-//        ));
-//    }
-
     public PatientRepository(List<Patient> patients) {
         this.patients = patients;
     }
